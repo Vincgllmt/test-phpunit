@@ -2,3 +2,5 @@
 ## Auteur
 Vincent Guillemot
 ## Installation/Configuration
+Installation de composer :
+```composer install```
