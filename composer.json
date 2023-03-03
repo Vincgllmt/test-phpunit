@@ -5,7 +5,12 @@
     "license": "Copyleft",
     "autoload": {
         "psr-4": {
-            "Guil0221\\TestsPhpunit\\": "src/"
+            "": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
         }
     },
     "scripts": {
