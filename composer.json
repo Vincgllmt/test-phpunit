@@ -8,6 +8,41 @@
             "Guil0221\\TestsPhpunit\\": "src/"
         }
     },
+    "scripts": {
+        "test:cs": [
+            "vendor/bin/php-cs-fixer fix --dry-run"
+        ],
+        "fix:cs": [
+            "vendor/bin/php-cs-fixer fix"
+        ],
+        "test:md": [
+            "vendor/bin/phpmd src/ text ruleset.xml",
+            "vendor/bin/phpmd tests/ text ruleset.xml"
+        ],
+        "test:phpunit": [
+            "vendor/bin/phpunit"
+        ],
+        "test": [
+            "@test:cs",
+            "@test:md",
+            "@test:phpunit"
+        ],
+        "grumphp:precommit": [
+            "vendor/bin/grumphp git:pre-commit --no-interaction"
+        ],
+        "grumphp:run": [
+            "vendor/bin/grumphp run"
+        ]
+    },
+    "scripts-descriptions": {
+        "test:cs": "Test code with PHP CS Fixer",
+        "fix:cs": "Fix code with PHP CS Fixer",
+        "test:md": "Run PHP Mess Detector tests",
+        "test:phpunit": "Run PHPUnit tests",
+        "test": "Run all tests",
+        "grumphp:precommit": "Run GrumPHP on staged files",
+        "grumphp:run": "Run GrumPHP on all files"
+    },
     "authors": [
         {
             "name": "Guillemot Vincent",
