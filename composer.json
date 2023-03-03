@@ -14,5 +14,7 @@
             "email": "vincent.guillemot@etudiant.univ-reims.fr"
         }
     ],
-    "require": {}
+    "require-dev": {
+        "phpunit/phpunit": "^9"
+    }
 }
