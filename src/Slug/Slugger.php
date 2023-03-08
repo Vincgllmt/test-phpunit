@@ -8,11 +8,10 @@ class Slugger
 {
     public function slugify(string $text): string
     {
-        $text = html_entity_decode(strip_tags($text));
+        $text = html_entity_decode(strip_tags($text), ENT_HTML5 | ENT_QUOTES);
         $text = transliterator_transliterate('Any-Latin; Latin-ASCII;', $text);
         $text = preg_replace('/[^0-9a-zA-Z]+/', '-', $text);
         $text = trim($text, "-");
-        $text = mb_strtolower($text);
-        return $text;
+        return strtolower($text);
     }
 }
