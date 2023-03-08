@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Calculator;
 
+use RuntimeException;
+
 class FloatCalculator
 {
     /**
@@ -27,14 +29,14 @@ class FloatCalculator
     public function divide(float $firstOperand, float $secondOperand): float
     {
         if ($secondOperand == 0) {
-            throw new \RuntimeException();
+            throw new RuntimeException();
         }
         return $firstOperand/$secondOperand;
     }
     public function modulus(float $firstOperand, float $secondOperand): float
     {
         if ($secondOperand == 0) {
-            throw new \RuntimeException();
+            throw new RuntimeException();
         }
         return $firstOperand%$secondOperand;
     }
