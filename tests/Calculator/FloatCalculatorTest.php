@@ -5,11 +5,16 @@ declare(strict_types=1);
 namespace Calculator;
 
 use PHPUnit\Framework\TestCase;
-use Calculator\FloatCalculator;
+
 use function PHPUnit\Framework\assertSame;
 
 class FloatCalculatorTest extends TestCase
 {
+    protected FloatCalculator $floatCalculator;
+    protected function setUp(): void
+    {
+        $this->floatCalculator = new FloatCalculator();
+    }
     public function additionProvider(): array
     {
         return [
@@ -25,8 +30,7 @@ class FloatCalculatorTest extends TestCase
      */
     public function testOnePlusTwoEqualThree(): void
     {
-        $floatCalculator = new FloatCalculator();
-        $result = $floatCalculator->add(1, 2);
+        $result = $this->floatCalculator->add(1, 2);
         assertSame(3.0, $result);
     }
 
@@ -38,6 +42,6 @@ class FloatCalculatorTest extends TestCase
      */
     public function testAdd(float $firstOperand, float $secondOperand, float $expected): void
     {
-        assertSame($expected, $firstOperand+$secondOperand);
+        assertSame($expected, $this->floatCalculator->add($firstOperand, $secondOperand));
     }
 }
