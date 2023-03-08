@@ -44,4 +44,9 @@ class FloatCalculatorTest extends TestCase
     {
         assertSame($expected, $this->floatCalculator->add($firstOperand, $secondOperand));
     }
+    public function testSubstract(): void
+    {
+        assertSame(1.0, $this->floatCalculator->subtract(2, 1));
+        assertSame(-10.0, $this->floatCalculator->subtract(-5,5));
+    }
 }
