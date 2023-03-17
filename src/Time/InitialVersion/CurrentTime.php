@@ -16,9 +16,9 @@ class CurrentTime
         switch ($date) {
             case ($date < 6):
                 return "Night";
-            case ($date > 6 && $date < 12):
+            case ($date >= 6 && $date < 12):
                 return "Morning";
-            case ($date > 12 && $date < 18):
+            case ($date >= 12 && $date < 18):
                 return "Noon";
             default:
                 return "Evening";
