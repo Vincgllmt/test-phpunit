@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Time\TimestampVersion;
 
 use PHPUnit\Framework\TestCase;
-use Time\InitialVersion\CurrentTime;
+use Time\TimestampVersion\CurrentTime;
 
 use function PHPUnit\Framework\assertSame;
 use function PHPUnit\Framework\greaterThan;
@@ -22,7 +22,7 @@ class CurrentTimeTest extends TestCase
     {
         self::assertThat($this->currentTime->getTime(), constraint:  greaterThan(-1));
     }
-    public function timeProvider(): array
+    public function timeDayProvider(): array
     {
         return [
             "time·set·to··1" => [1, "Night"],
@@ -43,7 +43,7 @@ class CurrentTimeTest extends TestCase
     /**
      * @param int $time
      * @param string $expected
-     * @dataProvider timeProvider
+     * @dataProvider timeDayProvider
      * @return void
      */
     public function testGetTimeOfDay(int $time, string $expected): void
@@ -51,5 +51,29 @@ class CurrentTimeTest extends TestCase
         $mock = $this->createPartialMock(CurrentTime::class, ['getTime']);
         $mock->method('getTime')->willReturn($time);
         assertSame($mock->getTimeOfDay(), $expected);
+    }
+    public function timeProvider(): array
+    {
+        return [
+            "time set to 0" => [0,0],
+            "time set to 3" => [3,3],
+            "time set to 6" => [6,6],
+            "time set to 12" => [12,12],
+            "time set to 23" => [23,23],
+        ];
+    }
+
+    /**
+     * @param int $time
+     * @param string $expected
+     * @return void
+     * @dataProvider timeProvider
+     */
+    public function testGetTime(int $time, int $expected): void
+    {
+        $mock = $this->createPartialMock(CurrentTime::class, ['getTimestamp']);
+        $mock->method('getTimestamp')->willReturn(strtotime("$time:00:00"));
+        $mock->expects($this->once())->method('getTimestamp');
+        assertSame($mock->getTime(), $expected);
     }
 }
