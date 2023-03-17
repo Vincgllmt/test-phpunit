@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Time;
+namespace Time\InitialVersion;
 
 class CurrentTime
 {
