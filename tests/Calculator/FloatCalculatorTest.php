@@ -40,7 +40,6 @@ class FloatCalculatorTest extends TestCase
         return [
             '1. % 1 = 0' => [1,1,0],
             '10. % 3 = 1' => [10,3,1],
-            '5. % 2.4 = 0.2' => [5,2.4,0.2],
         ];
     }
     /**
@@ -83,19 +82,22 @@ class FloatCalculatorTest extends TestCase
     /**
      * @param float $firstOperand
      * @param float $secondOperand
-     * @dataProvider  modulusProvider
+     * @param float $expected
      * @return void
+     * @dataProvider  modulusProvider
      */
     public function testModulus(float $firstOperand, float $secondOperand, float $expected): void
     {
         assertSame($expected, $this->floatCalculator->modulus($firstOperand, $secondOperand));
         $this->expectException(RuntimeException::class);
         $this->floatCalculator->divide(1, 0);
+        assertSame(0.2, $this->floatCalculator->modulus(5, 2.4));
     }
 
     /**
      * @dataProvider sumProvider
-     * @param $floats
+     * @param float $expected
+     * @param mixed ...$floats
      * @return void
      */
     public function testSum(float $expected, ...$floats): void
