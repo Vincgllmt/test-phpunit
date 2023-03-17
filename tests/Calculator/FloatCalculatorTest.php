@@ -54,8 +54,9 @@ class FloatCalculatorTest extends TestCase
     /**
      * @param float $firstOperand
      * @param float $secondOperand
-     * @dataProvider  additionProvider
+     * @param float $expected
      * @return void
+     * @dataProvider  additionProvider
      */
     public function testAdd(float $firstOperand, float $secondOperand, float $expected): void
     {
