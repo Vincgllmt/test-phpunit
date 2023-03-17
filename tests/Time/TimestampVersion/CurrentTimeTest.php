@@ -6,6 +6,7 @@ namespace Time\TimestampVersion;
 
 use PHPUnit\Framework\TestCase;
 use Time\InitialVersion\CurrentTime;
+
 use function PHPUnit\Framework\assertSame;
 use function PHPUnit\Framework\greaterThan;
 

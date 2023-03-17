@@ -8,7 +8,7 @@ class CurrentTime
 {
     public function getTime(): int
     {
-        return (int)date('G');
+        return (int)date('G', $this->getTimestamp());
     }
     public function getTimeOfDay(): string
     {
@@ -23,5 +23,9 @@ class CurrentTime
             default:
                 return "Evening";
         }
+    }
+    public function getTimestamp(): int
+    {
+        return time();
     }
 }
