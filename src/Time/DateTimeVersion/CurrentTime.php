@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Time\DateTimeVersion;
 
+use DateTime;
+
 class CurrentTime
 {
     public const NIGHT = 1;
@@ -28,8 +30,8 @@ class CurrentTime
                 return self::EVENING;
         }
     }
-    public function getDateTime(): \DateTime
+    public function getDateTime(): DateTime
     {
-        return new \DateTime();
+        return new DateTime();
     }
 }
