@@ -14,7 +14,7 @@ class CurrentTime
     public const EVENING = 4;
     public function getTime(): int
     {
-        return (int)date_format($this->getDateTime(), 'G');
+        return (int)$this->getDateTime()->format('H');
     }
     public function getTimeOfDay(): int
     {
