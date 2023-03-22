@@ -37,6 +37,11 @@
         ],
         "grumphp:run": [
             "vendor/bin/grumphp run"
+        ],
+        "test:coverage": [
+            "rm -d coverage",
+            "XDEBUG_MODE=coverage vendor/bin/phpunit --color --coverage-html coverage",
+            "xdg-open"
         ]
     },
     "scripts-descriptions": {
@@ -46,7 +51,8 @@
         "test:phpunit": "Run PHPUnit tests",
         "test": "Run all tests",
         "grumphp:precommit": "Run GrumPHP on staged files",
-        "grumphp:run": "Run GrumPHP on all files"
+        "grumphp:run": "Run GrumPHP on all files",
+        "test:coverage": "Run test coverage"
     },
     "authors": [
         {
